@@ -28,3 +28,7 @@
 */
 /*
 */
+if(!WYMeditor) { var WYMeditor = {}; }
+WYMeditor.STRINGS = {};
+WYMeditor.SKINS = {};
+WYMeditor.onload_functions = [];
