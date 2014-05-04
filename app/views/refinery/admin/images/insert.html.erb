@@ -50,9 +50,9 @@
                 self.callback(selected_images);
                 close_dialog(e);
             } else {
-                top.tinymce.activeEditor.insertContent(selected_images.outerHTML);
-                top.tinymce.activeEditor.nodeChanged();
-                top.tinymce.activeEditor.windowManager.close();
+                parent.tinymce.activeEditor.insertContent(selected_images.outerHTML);
+                parent.tinymce.activeEditor.nodeChanged();
+                parent.tinymce.activeEditor.windowManager.close();
             }
         }
         dialog.create();

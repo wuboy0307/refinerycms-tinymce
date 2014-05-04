@@ -52,7 +52,7 @@ tinymce.PluginManager.add('refineryfilemanager', function(editor) {
 			title: title,
 			file: editor.settings.external_filemanager_path+'images/insert?modal=true',
 			width: 860,
-			height: 570,
+			height: 300,
 			inline: 1,
 			resizable: true,
 			maximizable: true
