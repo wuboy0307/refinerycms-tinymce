@@ -68,6 +68,11 @@
 
                 image_url = resize ? img.attr('data-' + size) : img.attr('data-original');
                 img.attr("src", image_url);
+                if (geometry) {
+                    img.attr("width", geometry.replace(/x.*/, "")).attr("height", null);
+                } else {
+                    img.attr("width", null).attr("height", null);
+                }
             }
         }
         dialog.create();
