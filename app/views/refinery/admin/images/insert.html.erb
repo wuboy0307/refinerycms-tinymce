@@ -55,6 +55,21 @@
                 parent.tinymce.activeEditor.windowManager.close();
             }
         }
+
+        dialog.toggle_image = function(img) {
+            if (img.length > 0) {
+                if (!self.settings.multiple) $('#existing_image_area_content ul li.selected').removeClass('selected');
+
+                img.parent().toggleClass('selected');
+                var imageId = img.attr('data-id');
+                var geometry = $('#existing_image_size_area li.selected a').attr('data-geometry');
+                var size = $('#existing_image_size_area li.selected a').attr('data-size');
+                var resize = $("#wants_to_resize_image").is(':checked');
+
+                image_url = resize ? img.attr('data-' + size) : img.attr('data-original');
+                img.attr("src", image_url);
+            }
+        }
         dialog.create();
 
       $('input[type=radio][value=upload_image]:checked').click();
