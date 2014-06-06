@@ -1,0 +1,65 @@
+<div id='page-tabs' class='clearfix ui-tabs ui-widget ui-widget-content ui-corner-all'>
+    <ul id='page_parts'>
+        <% fields.each_with_index do |part, part_index| %>
+            <li class='ui-state-default<%= ' ui-state-active' if part_index == 0 %>'>
+                <%= link_to t("#{part}", :scope => "activerecord.attributes.refinery/#{object}", :default => part.to_s.titleize), "##{part}" %>
+            </li>
+        <% end %>
+    </ul>
+    <div id='page_part_editors'>
+        <% fields.each do |part| %>
+            <div class='page_part' id='<%= part %>'>
+                <div class="clearfix wysiwyg-editor-wrapper">
+                    <%= f.text_area part, rows: 20, class: 'wysiwyg-editor widest' %>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+<script>
+    submit_and_continue = function(e, redirect_to) {
+        if ($(this).hasClass('wymupdate')) {
+            tinymce.triggerSave();
+        }
+
+        $('#continue_editing').val(true);
+        $('#flash').fadeOut(250);
+
+        $('.fieldWithErrors').removeClass('fieldWithErrors').addClass('field');
+        $('#flash_container .errorExplanation').remove();
+
+        $.post(
+                $('#continue_editing').get(0).form.action
+                , $($('#continue_editing').get(0).form).serialize()
+                , function(data) {
+                    if (($flash_container = $('#flash_container')).length > 0) {
+                        $flash_container.html(data);
+
+                        $('#flash').css({'width': 'auto', 'visibility': null}).fadeIn(550);
+
+                        $('.errorExplanation').not($('#flash_container .errorExplanation')).remove();
+
+                        if ((error_fields = $('#fieldsWithErrors').val()) != null) {
+                            $.each(error_fields.split(','), function() {
+                                $("#" + this).wrap("<div class='fieldWithErrors' />");
+                            });
+                        } else if (redirect_to) {
+                            window.location = redirect_to;
+                        }
+
+                        $('.fieldWithErrors:first :input:first').focus();
+
+                        $('#continue_editing').val(false);
+
+                        init_flash_messages();
+
+                        //updates the form action with new URL
+                        $('form').attr('action', $('#new_action').attr('value'));
+                    }
+                }, 'html'
+        );
+
+        e.preventDefault();
+    };
+</script>
