@@ -23,7 +23,7 @@ $(function() {
 
     options.convert_urls = false;
     options.selector = ".wysiwyg-editor";
-    options.plugins = "advlist code table lists charmap autolink hr anchor pagebreak fullscreen textcolor refineryfilemanager"
+    options.plugins = "link advlist code autolink table lists colorpicker insertdatetime wordcount charmap autolink hr anchor pagebreak fullscreen textcolor refineryfilemanager";
     options.toolbar1 = "undo redo |  bullist numlist outdent indent | image media | refineryfilemanager";
     options.toolbar2 = "styleselect | bold italic underline | fontselect forecolor backcolor";
     options.image_advtab = true;

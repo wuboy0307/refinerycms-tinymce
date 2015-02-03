@@ -15,5 +15,5 @@ Gem::Specification.new do |s|
   s.require_paths     = %w(lib)
 
   s.add_dependency 'refinerycms-core'
-  s.add_dependency 'tinymce-rails', '~> 4.0.19'
+  s.add_dependency 'tinymce-rails'
 end
