@@ -306,7 +306,7 @@ tinymce.PluginManager.add("localautosave", function(editor, url) {
 							settings.callback.call(obj);
 						}
 						var btn = getButtonByName('localautosave');
-						$(btn).find('i').replaceWith('<i class="mce-ico mce-i-none" style="background: url(\'' + url + '<%=asset_path('tinymce/localautosave/progress.gif')%>\') no-repeat;"></i>');
+						$(btn).find('i').replaceWith('<i class="mce-ico mce-i-none" style="background: url(\'' + url + '<%=asset_path('refinery/tinymce/localautosave/progress.gif')%>\') no-repeat;"></i>');
 						//$(btn).find('i').replaceWith('<i class="mce-ico mce-i-refresh"></i>');
 						var t = setTimeout(function() {
 							$(btn).find('i').replaceWith('<i class="mce-ico mce-i-restoredraft fa-spin"></i>');
