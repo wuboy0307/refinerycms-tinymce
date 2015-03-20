@@ -1,4 +1,4 @@
-tinyMCE.addI18n('en', {
+tinyMCE.addI18n('zh_TW', {
 	'localautosave.restoreContent' : '載入內容',
 	'localautosave.chooseVersion' : '選擇你要載入的版本',
 	'localautosave.chars' : '字元',

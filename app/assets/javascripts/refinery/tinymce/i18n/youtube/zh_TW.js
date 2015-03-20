@@ -1,4 +1,4 @@
-tinymce.addI18n('en',{
+tinymce.addI18n('zh_TW',{
     'YouTube Tooltip'   : "YouTube",
 	'YouTube Title'     : "置入youtube影片",
 	'Youtube URL'	    : '要分享的youtube連結',
