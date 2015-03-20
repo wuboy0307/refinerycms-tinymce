@@ -1,6 +1,8 @@
 //= require refinery/i18n
 //= require tinymce
-//= require_tree ./plugins
+//= require_tree ./plugins/responsivefilemanager
+//= require_tree ./plugins/localautosave
+//= require ./plugins/youtube/plugin.js
 
 $(function() {
 
