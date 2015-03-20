@@ -1,5 +1,6 @@
 //= require refinery/i18n
 //= require tinymce
+//= require_tree ./plugins
 
 $(function() {
 
