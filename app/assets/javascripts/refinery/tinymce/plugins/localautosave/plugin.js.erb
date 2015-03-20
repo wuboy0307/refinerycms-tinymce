@@ -125,7 +125,7 @@ tinymce.PluginManager.add("localautosave", function(editor, url) {
 	var button = editor.addButton("localautosave", {
 		text : "",
 		icon : 'restoredraft',
-		tooltip : 'localautosave.restoreContent',
+		tooltip : tinymce.util.I18n.translate('localautosave.restoreContent'),
 		onclick : function() {
 			save();
 			while (!$busy) {
@@ -350,7 +350,7 @@ tinymce.PluginManager.add("localautosave", function(editor, url) {
 				var contents = list();
 
 				if (contents.length === 0) {
-					editor.windowManager.alert('localautosave.noContent');
+					editor.windowManager.alert(tinymce.util.I18n.translate("localautosave.noContent"));
 				} else {
 					if (contents.length === 1 && editor.getContent().replace(/\s|&nbsp;|<\/?p[^>]*>|<br[^>]*>/gi, "").length === 0) {
 						editor.setContent(decodeStorage(contents[0].substring(contents[0].indexOf(",") + 1)));
@@ -360,17 +360,17 @@ tinymce.PluginManager.add("localautosave", function(editor, url) {
 						for (var i = 0, j = contents.length; i < j; i++) {
 							var aContent = decodeStorage(contents[i].substring(contents[i].indexOf(",") + 1));
 							var aKey = contents[i].substring(0, contents[i].indexOf(","));
-							divContent += "<li class='clearfix'><label>" + aKey + "</label> <tt>(" + aContent.replace(/<\/?[a-z]+[^>]*>/gi, '').length + " " + tinymce.translate('localautosave.chars') + ")</tt><span>" + aContent + "</span></li>";
+							divContent += "<li class='clearfix'><label>" + aKey + "</label> <tt>(" + aContent.replace(/<\/?[a-z]+[^>]*>/gi, '').length + " " + tinymce.util.I18n.translate('localautosave.chars') + ")</tt><span>" + aContent + "</span></li>";
 						};
 						divContent += "</ul></div>";
 						editor.windowManager.open({
 							width : 380,
 							height : 240,
 							scrollbars : true,
-							title : 'localautosave.chooseVersion',
+							title : tinymce.util.I18n.translate('localautosave.chooseVersion'),
 							html : divContent,
 							buttons : [{
-								text : 'localautosave.clearAll',
+								text : tinymce.util.I18n.translate('localautosave.clearAll'),
 								onclick : function() {
 									clearAll(listKeys());
 									tinyMCE.activeEditor.windowManager.close();
