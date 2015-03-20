@@ -850,7 +850,7 @@ if (!jQuery)throw new Error("Bootstrap requires jQuery");
             HTML5: parent.tinymce.util.I18n.translate("HTML5"),
             Insert: parent.tinymce.util.I18n.translate("Insert")
         };
-        t.get("<%=asset_path('refinery/tinymce/youtube/view/forms.html')%>", function (i) {
+        t.get("<%=asset_path('refinery/tinymce/plugins/youtube/view/forms.html')%>", function (i) {
             t("#template-container").append(Mustache.render(i, e)), l(), t("#insert-btn").on("click", r)
         })
     })
